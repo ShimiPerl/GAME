@@ -20,12 +20,16 @@ public class Body {
     }//paint body
 
     public void jumpUp(){
-        this.y--;
+        this.y = y -20;
     }//jump up dicrees y
 
     public void jumpUpDown() {
         this.y++;
     }//jump down increes y
+
+    public void  down(){
+        this.y = y + 2;
+    }
 
 
 

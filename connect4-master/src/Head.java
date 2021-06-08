@@ -19,12 +19,16 @@ public class Head {
     }//paint head
 
     public void jumpUp(){
-        this.y--;
+        this.y = y -20;
     }//jump up dicrees y
 
     public void jumpDown() {
         this.y++;
     }//jump down increes y
+
+    public void  down(){
+        this.y = y +2;
+    }
 
     public int getX() {
         return x;

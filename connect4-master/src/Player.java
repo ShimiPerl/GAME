@@ -25,5 +25,10 @@ public class Player{
         this.head.paint(graphics);
     }//paint body and head
 
+    public void rollingDown(){
+        this.head.down();
+        this.body.down();
+    }
+
 
 }

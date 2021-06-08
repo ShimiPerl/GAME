@@ -3,10 +3,12 @@ import java.awt.event.KeyListener;
 
 public class GameMovement implements KeyListener {
     private Player player;
+    private Enemy enemy;
 
 
-    public GameMovement(Player player){
+    public GameMovement(Player player,Enemy enemy){
         this.player = player;
+        this.enemy = enemy;
     }
 
     public void keyTyped(KeyEvent e) {
@@ -24,6 +26,9 @@ public class GameMovement implements KeyListener {
                 this.player.jumpDown();
                 System.out.println("move DOWN");
                 break;
+            case  KeyEvent.VK_SPACE:
+                this.player.jumpUp();
+                System.out.println("jump with space");
         }
     }
 

@@ -10,8 +10,11 @@
 //painting
 //icons
 //recaptcha v3
+import javax.management.openmbean.ArrayType;
 import javax.swing.*;
 import java.awt.*;
+
+
 
 public class Window extends JFrame {
     private Player player;
@@ -34,14 +37,18 @@ public class Window extends JFrame {
         this.setResizable(false);//you can`ot change the window
         this.setTitle("Game");
         this.player = new Player();
+        this.enemy = new Enemy(1, 1, 1, 600);
+        GameMovement movement = new GameMovement(player,enemy);//create a object of game movement
         this.mainWindowLoop();
-        GameMovement movment = new GameMovement(player);//create a object of game movement
-        this.addKeyListener(movment);//add the object to the keys control
+        this.addKeyListener(movement);//add the object to the keys control
+
     }
 
     public void paint(Graphics graphics) {
         super.paint(graphics);
         this.player.paint(graphics);
+        this.enemy.paint(graphics);
+        //}
     }//paint player
 
 
@@ -49,6 +56,8 @@ public class Window extends JFrame {
         new Thread(() -> {
             while (true) {
                 try {
+                    this.player.rollingDown();
+                    this.enemy.side();
                     Thread.sleep(50);
                     repaint();
                 } catch (InterruptedException e) {

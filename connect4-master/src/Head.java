@@ -39,7 +39,7 @@ public class Head {
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(int y) {
@@ -61,6 +61,5 @@ public class Head {
     public void setHeight(int height) {
         this.height = height;
     }
-
 
 }

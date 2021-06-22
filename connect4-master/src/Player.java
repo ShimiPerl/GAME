@@ -6,29 +6,43 @@ public class Player{
 
 
     public Player(){
-        this.head = new Head(Definitions.HEAD_X ,Definitions.HEAD_Y,Definitions.HEAD_SIZE,Definitions.HEAD_SIZE);
-        this.body = new Body(Definitions.HEAD_X,(Definitions.HEAD_Y+Definitions.HEAD_SIZE),20,30);
+        head = new Head(Definitions.HEAD_X ,Definitions.HEAD_Y,Definitions.HEAD_SIZE,Definitions.HEAD_SIZE);
+        body = new Body(Definitions.HEAD_X,(Definitions.HEAD_Y+Definitions.HEAD_SIZE),20,30);
     }//constarctor
 
     public void jumpUp(){
-        this.head.jumpUp();
-        this.body.jumpUp();
+        head.jumpUp();
+        body.jumpUp();
     }//jumpup
 
     public void jumpDown(){
-        this.head.jumpDown();
-        this.body.jumpUpDown();
+        head.jumpDown();
+        body.jumpUpDown();
     }//jumpdown
 
     public void paint(Graphics graphics){
-        this.body.paint(graphics);
-        this.head.paint(graphics);
+        body.paint(graphics);
+        head.paint(graphics);
     }//paint body and head
 
     public void rollingDown(){
-        this.head.down();
-        this.body.down();
+        head.down();
+        body.down();
     }
 
+    public int getHeadx(){
+        return head.getX();
+    }
 
+    public int getBodyx(){
+       return body.getX();
+    }
+
+    public int getHeady(){
+        return head.getY();
+    }
+
+    public int getBodyy(){
+        return body.getY();
+    }
 }

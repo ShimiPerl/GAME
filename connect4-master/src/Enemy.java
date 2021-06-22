@@ -1,30 +1,43 @@
 import java.awt.*;
-import java.util.Random;
+ 
 
 public class Enemy {
     private Enemy enemy;
     private int x;
-    private int y;
-    private  int width;
-    private  int height;
-
-    public Enemy(int y, int width , int height,int x){
-        this.enemy = enemy;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.x = x;
-    }
+    private int yTop;
+    private int y1;
 
     public void paint(Graphics graphics){
         graphics.setColor(Color.GREEN);
-        graphics.fillRect(x,0,5,100);
+        graphics.fillRect(x,yTop,5,150);
+        graphics.fillRect(x,y1,5,150);
     }
 
     public void  side(){
         this.x = x -5;
     }
 
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return yTop;
+    }
+
+    public int getyBotom() {
+        return y1;
+    }
+
+    public Enemy(int x ,int y ,int y1){
+        this.x = x;
+        this.yTop =y;
+        this.y1 =y1;
+    }
 }
 
 

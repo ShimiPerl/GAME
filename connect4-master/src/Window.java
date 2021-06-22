@@ -1,20 +1,5 @@
-//1.swing (and we have java fx but is`t to easy) זה ממשק גרפי
-//JFrame - window
-//JLabel - text
-//JButton - button
-// extends ==ירושה//
-//2. java fx
-//scraping == חציבת מידע מאתרים
-
-//keyboard control
-//painting
-//icons
-//recaptcha v3
-import javax.management.openmbean.ArrayType;
 import javax.swing.*;
 import java.awt.*;
-
-
 
 public class Window extends JFrame {
     private Player player;
@@ -37,7 +22,7 @@ public class Window extends JFrame {
         this.setResizable(false);//you can`ot change the window
         this.setTitle("Game");
         this.player = new Player();
-        this.enemy = new Enemy(1, 1, 1, 600);
+        this.enemy = new Enemy(600,0,300);
         GameMovement movement = new GameMovement(player,enemy);//create a object of game movement
         this.mainWindowLoop();
         this.addKeyListener(movement);//add the object to the keys control
@@ -48,7 +33,6 @@ public class Window extends JFrame {
         super.paint(graphics);
         this.player.paint(graphics);
         this.enemy.paint(graphics);
-        //}
     }//paint player
 
 
@@ -58,10 +42,24 @@ public class Window extends JFrame {
                 try {
                     this.player.rollingDown();
                     this.enemy.side();
+                    if (this.enemy.getX() == 0){
+                        this.enemy = new Enemy(600,0,300);
+                        this.enemy.side();
+                    }
+                    int yplayer = this.player.getHeady();
+                    int yenemy = this.enemy.getY();
+                    int xplater =this.player.getHeadx();
+                    int xenemy =   this.enemy.getX();
+                    if (xplater == xenemy){
+                        if (yenemy == yplayer){
+                        System.out.println("game over");
+                        this.setVisible(false);
+                    }}
                     Thread.sleep(50);
                     repaint();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+
                 }
             }
         }).start();
